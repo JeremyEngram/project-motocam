@@ -1,0 +1,56 @@
+import pygame
+import cv2
+
+# Initialize the pygame library
+pygame.init()
+
+# Create a display surface
+display = pygame.display.set_mode((640, 480))
+
+# Create a video capture object
+cap = cv2.VideoCapture(0)
+
+# Read the next frame from the camera
+ret, frame = cap.read()
+
+# Convert the frame to RGB
+rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+# Resize the frame to fit the display
+scaled_frame = pygame.transform.scale(rgb_frame, (display.get_width(), display.get_height()))
+
+# Display the frame on the screen
+pygame.surfarray.blit(display, scaled_frame)
+
+# Update the display
+pygame.display.update()
+
+# Check if the user wants to quit
+while not pygame.event.get(pygame.QUIT):
+    pass
+
+# Close the video capture object
+cap.release()
+
+# Quit the pygame library
+pygame.quit()
+Use code with caution. Learn more
+This code will first initialize the pygame library and create a display surface. Then, it will create a video capture object and read the next frame from the camera. The frame will then be converted to RGB and resized to fit the display. Finally, the frame will be displayed on the screen.
+
+The code will continue to loop until the user quits. When the user quits, the video capture object will be closed and the pygame library will be quit.
+
+Here are some additional notes about the code:
+
+The pygame.init() function initializes the pygame library.
+The pygame.display.set_mode() function creates a display surface.
+The cv2.VideoCapture() function creates a video capture object.
+The cv2.cvtColor() function converts a frame from one color space to another.
+The pygame.transform.scale() function resizes a surface.
+The pygame.surfarray.blit() function copies a surface to another surface.
+The pygame.display.update() function updates the display.
+The pygame.event.get() function gets all the events that have occurred since the last call.
+The pygame.QUIT event is triggered when the user quits the program.
+I hope this helps! Let me know if you have any other questions.
+
+Enter a prompt here
+Bard may display inaccurate or offensive information that doesn’t represent Google’s views. Bard 
